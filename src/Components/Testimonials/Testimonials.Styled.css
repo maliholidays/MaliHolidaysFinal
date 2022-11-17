@@ -1,0 +1,70 @@
+.Testimonials{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Poppins';
+    padding: 100px;
+}
+.TestimonialTitle{
+    font-size: 60px;
+}
+.TestimonialDescription{
+    font-size: 22px;
+    width: 75%;
+    padding: 50px 0;
+}
+.Testimonial{
+    background-color: #f9f9f9;
+    padding: 50px;
+    border-radius: 15px;
+}
+.TestimonialsLeft{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.TestimonialsRight{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.TestimonialDetail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.TestimonialAuthor{
+    font-size: 25px;
+    font-weight: 600;
+    padding-top: 15px;
+}
+.TestimonialText{
+    font-size: 18px;
+    font-style: italic;
+    color:gray;
+    line-height: 35px;
+    letter-spacing: 1.5px;
+}
+.TestimonialsIcons{
+    padding: 35px 0 0 0;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.TestimonialsIcons i{
+    font-size: 25px;
+    color:#ed640e;
+}
+.TestimonialActions{
+    display: flex;
+    width: 13%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.TestimonialActions i{
+    padding: 15px;
+    height: 50px;
+    border-radius:10px;
+    border:1px solid #ed640e;
+}

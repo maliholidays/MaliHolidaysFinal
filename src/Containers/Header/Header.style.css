@@ -1,0 +1,60 @@
+.Header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height:100px;
+    border-bottom: 1px solid white;
+
+}
+.HeaderLeftSide{
+    display: flex;
+    width: 28%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.HeaderLogo img{
+    cursor: pointer;
+}
+.HeaderMenu{
+    width:65%;
+
+}
+.HeaderMenu ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.HeaderMenu ul a{
+    text-decoration: none;
+    color:black;
+    font-size: 15px;
+    font-weight: 500;
+    cursor:pointer;
+}
+.HeaderMenu ul li{
+    list-style: none;
+    
+}
+.HeaderIcons{
+    display: flex;
+    flex-direction: row;
+
+}
+.HeaderRightSide{
+    width: 3%;
+
+}
+.HeaderIcons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.HeaderIcons i{
+    cursor: pointer;
+}

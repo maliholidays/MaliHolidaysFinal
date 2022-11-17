@@ -1,0 +1,83 @@
+.About{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+    padding: 50px 0;
+}
+.AboutTitle{
+    font-size: 18px;
+    letter-spacing: 8px;
+    font-weight: 500;
+}
+.AboutPara{
+    font-size: 36px;
+    font-weight: 600;
+    padding: 10px 0;
+}
+.AboutContents{
+    padding: 75px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.AboutLeftSide{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.AboutSection{
+    padding: 15px 0;
+}
+.AboutLeftSide .AboutSectionNumber{
+    width:60px;
+    padding: 8px 0;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #ea8b6d;
+    color: #fff;
+    font-weight: 500;
+}
+.AboutLeftSide .AboutSectionTitle{
+    font-weight: 600;
+    font-size: 25px;
+    padding: 10px 0;
+
+}
+.AboutLeftSide .AboutSectionParagraph{
+    font-size: 18px;
+    color: lightgray;
+    width: 85%;
+    line-height: 30px;
+    padding: 10px 0;
+
+}
+.AboutRightSide{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.AboutRightSide{
+    position: relative;
+}
+.AboutRightSide .AboutRightSideImageTop{
+    width: 60%;
+    border-radius:250px;
+}
+.AboutRightSide .AboutRightSideImageBottom{
+    width: 35%;
+    border:10px solid #fff;
+    border-radius:150px;
+    position: absolute;
+    bottom:0;
+    left:0;
+}

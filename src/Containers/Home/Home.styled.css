@@ -1,0 +1,21 @@
+.box{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.BoxContent{
+    width: 45%;
+    padding: 15px;
+
+}
+.ImageBox{
+    width: 100%;
+    max-height:200px;
+    min-height: 200px;
+
+}
+.BoxTitle{
+    text-align: center;
+}
