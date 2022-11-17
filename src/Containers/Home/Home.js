@@ -11,15 +11,15 @@ import './Home.styled.css'
 function Home() {
   return (
     <>
-        {/* <Header/>
+        <Header/>
         <About/>
         <Search/>
         <Explore/>
         <Testimonials/>
         <Subscription/>
         <Footer/>
-         */}
-         <div className="box">
+        
+         {/* <div className="box">
           <div className="BoxContent">
             <img src="https://m.media-amazon.com/images/I/51ZL-NBk7hL._AC_SY135_.jpg" alt="" className="ImageBox" />
             <p className="BoxTitle">Hawk Proaudio SXFG01</p>
@@ -36,7 +36,7 @@ function Home() {
             <img src="https://m.media-amazon.com/images/I/51K7wenaznL._AC_SY135_.jpg" alt="" className="ImageBox" />
             <p className="BoxTitle">Maono AU-A03 Conden…</p>
           </div>
-         </div>
+         </div> */}
     </>
   )
 }
