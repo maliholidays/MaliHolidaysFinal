@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "SerpentineEF";
+    src: url("./SerpentineEF-BoldItalic.otf");
+  }
+  @font-face {
+    font-family: "Brush455 BT";
+    src: url("./Brush455BT.ttf");
+  }
 .Footer{
     margin-left: auto;
     margin-right: auto;
