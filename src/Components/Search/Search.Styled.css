@@ -130,3 +130,129 @@
     font-size: 20px;
     padding-top: 75px;
 }
+
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+
+/*  */
+.Explore{
+    padding:75px;
+    font-family: 'Poppins';
+}
+.filters{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 35px 50px;
+    background-color: #f4f3f4;
+    border-radius: 50px;
+    margin-bottom: 100px;
+    
+}
+.leftFilters{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+.FilterTab{
+    border-radius: 80px;
+    padding: 10px 20px;
+    /* border:1px solid lightgray; */
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.FilterTabTitle{
+    font-weight: normal;
+    font-size: 16px;
+    
+}
+.FilterTab i{
+    background-color: #f4f3f4;
+    padding:15px;
+    margin-right: 15px;
+    border-radius:50%;
+}
+.RightFilters .FilterTab i{
+    margin-left: 15px;
+    margin-right: 0;
+}
+.Places{
+    padding:25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.PlaceTab{
+    width: 18%;
+    -webkit-box-shadow: 17px 15px 23px -2px rgba(247,247,247,1);
+-moz-box-shadow: 17px 15px 23px -2px rgba(247,247,247,1);
+box-shadow: 17px 15px 23px -2px rgba(247,247,247,1);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin: 25px;
+}
+.PlaceTabImage{
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+.PlaceTabDetails{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+
+    
+}
+.PlaceTabPlaceRating{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+.PlaceTabTitle{
+    font-size: 20px;
+}
+.PlaceTabPrice{
+    font-size: 20px;
+    font-weight: 800;
+    color: #ed640e;
+    
+}
+.PlaceTabDescription{
+    font-size: 13px;
+    font-weight: 600;
+}
+.PlaceTabPlace{
+    font-size: 14px;
+    font-weight: 500;
+    
+}
+.PlaceTabRating{
+    font-size: 14px;
+    font-weight: 700;
+}
+.PlaceTabRating i{
+    margin-right: 5px;
+    color: #ed640e;
+}

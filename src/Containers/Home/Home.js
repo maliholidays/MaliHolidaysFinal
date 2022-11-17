@@ -14,7 +14,7 @@ function Home() {
         <Header/>
         <About/>
         <Search/>
-        <Explore/>
+        {/* <Explore/> */}
         <Testimonials/>
         <Subscription/>
         <Footer/>
