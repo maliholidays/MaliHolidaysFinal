@@ -1,10 +1,18 @@
 import React from 'react'
-import BackWater from './backwater.jpg'
+// import BackWater from './backwater.jpg'
 import './Search.Styled.css'
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+  } from "react-router-dom";
 
 import { useState } from 'react'
 function Search() {
     const Areas = [
+        {
+            name:"All"
+        },
         {
             name:"Munnar",
         },
@@ -99,30 +107,30 @@ function Search() {
         <div className="SearchContent">
             <p className="SearchContenttitle">All you need is Tourink</p>
             <h1 className="SearchContentDescription">Explore Beautiful Places</h1>
-            <button className='SearchContentButton'><i class="fa-solid fa-chevron-left"></i>Lotus Temple
-                <i class="fa-solid fa-chevron-right"></i></button>
+            <button className='SearchContentButton'><i className="fa-solid fa-chevron-left"></i>Lotus Temple
+                <i className="fa-solid fa-chevron-right"></i></button>
             <div className="SearchBar">
-                <div className="SearchBarSection">
+                <div className="SearchBarSection locationSearchBar">
                     <div className="SearchBarIcon">
-                        <i class="fa-solid fa-location-dot"></i>
+                        <i className="fa-solid fa-location-dot"></i>
                     </div>
                     <div className="SearchBarInput">
                         <label htmlFor="">Location</label>
                         <input type="text" placeholder="Where do you want to go?"/>
                     </div>
                 </div>
-                <div className="SearchBarSection">
+                {/* <div className="SearchBarSection">
                     <div className="SearchBarIcon">
-                        <i class="fa-regular fa-calendar"></i>
+                        <i className="fa-regular fa-calendar"></i>
                         </div>
                         <div className="SearchBarInput">
                             <label htmlFor="">Date</label>
                             <input type="date" placeholder="Choose date"/>
                         </div>
-                    </div>
-                <div className="SearchBarSection">
+                    </div> */}
+                <div className="SearchBarSection GuestSearchBar">
                     <div className="SearchBarIcon">
-                    <i class="fa-solid fa-user"></i>
+                    <i className="fa-solid fa-user"></i>
                     </div>
                     <div className="SearchBarInput">
                         <label htmlFor="">Guests</label>
@@ -130,7 +138,7 @@ function Search() {
                     </div>
                 </div>
                 <div className="SearchBarSectionIcon">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
         </div>
@@ -143,51 +151,40 @@ function Search() {
                     }}>{Area.name}</button>
                 )
             })}
-            {/* <button className="SearchTabButton">Lotus Temple</button>
-            <button className="SearchTabButton">Lotus Temple</button>
-            <button className="SearchTabButton">Lotus Temple</button>
-            <button className="SearchTabButton">Lotus Temple</button>
-            <button className="SearchTabButton">Lotus Temple</button>
-            <button className="SearchTabButton">Lotus Temple</button>
-            <button className="SearchTabButton">Lotus Temple</button>
-            <button className="SearchTabButton">Lotus Temple</button>
-            <button className="SearchTabButton">Lotus Temple</button>
-            <button className="SearchTabButton">Lotus Temple</button>
-            <button className="SearchTabButton">Lotus Temple</button>
-            <button className="SearchTabButton">Lotus Temple</button> */}
+            
         </div>
     </div>
     <div className="Explore">
-        <div className="filters">
+        {/* <div className="filters">
             <div className="leftFilters">
                 <div className="FilterTab">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
                     <p className="FilterTabTitle">Featured</p>
                 </div>
                 <div className="FilterTab">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
                     <p className="FilterTabTitle">Family-Friendly</p>
                 </div>
                 <div className="FilterTab">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
                     <p className="FilterTabTitle">On sale</p>
                 </div>
                 <div className="FilterTab">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
                     <p className="FilterTabTitle">Sub Now</p>
                 </div>
             </div>
             <div className="RightFilters">
                 <div className="FilterTab">
                     <p className="FilterTabTitle">Recently Added</p>
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i className="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
-        </div>
+        </div> */}
         <div className="Places">
-            {Places.map((place)=>{
+            {Places.map((place,index)=>{
                 console.log(place.image);
-                
+                while(index<8){
                 if(place.Area==placeArea){
                     return(  
                     <div className="PlaceTab">
@@ -197,200 +194,41 @@ function Search() {
                                 <h1 className="PlaceTabTitle">{place.Name}</h1>
                                 <p className="PlaceTabDescription">{place.Area}</p>
                             </div>
-                            <h1 className="PlaceTabPrice">{place.price}</h1>
+                            <h1 className="PlaceTabPrice">$ {place.price}</h1>
                         </div>
                         <div className="PlaceTabPlaceRating">
                             <p className="PlaceTabPlace">{place.Days}</p>
-                            <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>{place.rating}</p>
+                            <p className="PlaceTabRating"><i className="fa-solid fa-star"></i>{place.rating}</p>
                         </div>
                     </div>
                 )
+            }
+                else if(placeArea==""||placeArea=="All"){
+                    return(
+                        <div className="PlaceTab">
+                        <img src={place.image} alt="" className="PlaceTabImage" />
+                        <div className="PlaceTabDetails">
+                            <div className="PlaceTabName">
+                                <h1 className="PlaceTabTitle">{place.Name}</h1>
+                                <p className="PlaceTabDescription">{place.Area}</p>
+                            </div>
+                            <h1 className="PlaceTabPrice">$ {place.price}</h1>
+                        </div>
+                        <div className="PlaceTabPlaceRating">
+                            <p className="PlaceTabPlace">{place.Days}</p>
+                            <p className="PlaceTabRating"><i className="fa-solid fa-star"></i>{place.rating}</p>
+                        </div>
+                    </div>
+                    )
                 }
                 
+            }   
             })}
             
-            {/* <div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div>
-            <div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div>
-            <div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div>
-            <div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div>
-            <div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div>
-            <div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div>
-            <div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div><div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div>
-            <div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div>
-            <div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div>
-            <div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div><div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div>
-            <div className="PlaceTab">
-                <img src={BackWater} alt="" className="PlaceTabImage" />
-                <div className="PlaceTabDetails">
-                    <div className="PlaceTabName">
-                        <h1 className="PlaceTabTitle">The grand resort</h1>
-                        <p className="PlaceTabDescription">Melbroune, Australia</p>
-                    </div>
-                    <h1 className="PlaceTabPrice">$267</h1>
-                </div>
-                <div className="PlaceTabPlaceRating">
-                    <p className="PlaceTabPlace">250 Finders St, Melbourne</p>
-                    <p className="PlaceTabRating"><i class="fa-solid fa-star"></i>4.5</p>
-                </div>
-            </div> */}
+           
             
         </div>
+            <Link to="/Discover" className="ViewMore">View More Places</Link>
     </div>
     </div>
    
