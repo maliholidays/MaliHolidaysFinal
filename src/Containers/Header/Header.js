@@ -19,16 +19,20 @@ function Header() {
             <div className="HeaderMenu">
                 <ul>
                 <Link to="/Discover">Discover</Link>
+                <Link to="/About">About</Link>
                 <Link to="/Packages">Packages</Link>
-                <Link to="/">Gallery</Link>
+                <Link to="/Vehicles">Vehicles</Link>
                 </ul>
             </div>
         </div>
         <div className="HeaderRightSide">
-            <div className="HeaderIcons">
+            {/* <div className="HeaderIcons">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <i class="fa-regular fa-user"></i>
-            </div>
+            </div> */}
+            <div className="FooterLogo">
+          <h1>Mali<span>Holidays</span></h1>
+        </div>
         </div>
         
         

@@ -1,0 +1,227 @@
+import React, { useState } from 'react'
+import Footer from '../Footer/Footer'
+import Header from '../Header/Header'
+import Places from '../../APIs/Places'
+import Areas from '../../APIs/States'
+import { Link } from 'react-router-dom'
+import Munnar from '../../Images/Places/Ooty.jpg'
+import './PackageDescritpion.Styled.css'
+import Select from 'react-select'
+import traveller from '../../Images/Places/DSC_0908.JPG'
+import { useLocation,useParams } from "react-router-dom";
+function PackageDescription({placeDesc,setPlaceDesc}) {
+    const [placeState,setplaceState]= useState("");
+    const [placeArea,setPlaceArea] = useState("");
+    const[count,setCount]= useState(0);
+    // const[placeDesc,setPlaceDesc]= useState([]);
+    // console.log(Places);
+    // const location = useLocation();
+    // const datas = location.data;
+    // console.log("place is", props.location.state);
+    const {type} = useParams();
+    const {datas} = useLocation().state.Data;
+    // console.log("datas"+datas);
+    console.log("places from home though search"+placeDesc);
+    
+    
+    
+    const items = [
+        { value: '7', label: '(1-7) 7 Seat Car' },
+        { value: '12', label: '(7-12) 12 Seat Traveller' },
+        { value: '17', label: '(12-17) 17 Seat Traveller' },
+        { value: '17', label: '(17-20) 20 Seat Traveller' },
+        { value: '26', label: '(20-26) 26 Seat Traveller' },
+        { value: '35', label: '(26-35) 35 Seat Traveller' },
+        { value: '49', label: '(35-49) 49 Seat Traveller' },
+      ]
+    // const optionStyles={
+    //     width: '45%',
+    //     height: '40px',
+    //     fontSize: '18px',
+    //     color: 'rgb(46, 46, 46)',
+    //     padding: '5px 15px',
+    //     border:'none',
+    //     borderBottom:'1px solid rgb(179, 179, 179)',
+    //     /* border-radius: 5px; */
+    //     outline: 'none',
+    // }
+    // const customStyles = {
+    //     option: (provided, state) => ({
+    //       ...provided,
+    //       width: '100%',
+    //       height: '40px',
+    //       borderBottom: '2px dotted green',
+    //       color:'rgb(46, 46, 46)',
+    //       backgroundColor:'white',
+    //       fontSize: '18px',
+    //       padding: '5px 15px',
+    //       border:'none',
+    //       outline: 'none'
+    //     }),
+    //     control: (provided) => ({
+    //       ...provided,
+    //       marginTop: "5%",
+    //     })
+    //   }
+  return (
+    <div className="PackageDescription" >
+        <Header/>
+        <div className="PackageDescriptionBanner" id="Banner">
+            <div className="PackageDescriptionBannerImage">
+                <img src={Munnar} alt="" />
+                <h1 className="PackageDescriptionBannerTitle">Ooty</h1>
+            </div>
+        </div>
+        <div className="PackageDescriptionContent">
+            <h2 className='PackageDescriptionContentBooking'>For Price and Customizing your trip, Please Contact Below</h2>
+            <h1 className='PackageDescriptionAboutTitle'>About Munnar</h1>
+            <div className="PackageDescriptionAbout">
+
+            
+            <p>Popular among honeymooners, Munnar is a hill station in Kerala, located in the Idukki district. Lying in the Western Ghats at 1600 metres, it is one of the most sought after and visited travel destinations globally, especially popular amongst honeymooners. Munnar is famous for its tea estates, greenery, blankets of mist forming natural-view points.</p>
+            <p>Munnar is divided into Old Munnar, where the tourist information office is, and Munnar, where the bus station and most guest houses are located. The Eravikulam National Park, Salim Ali Bird Sanctuary and tea plantations are its major attractions. Munnar is also famous for being home to the rare Neelakurinji flowers that bloom once in 12 years (the next bloom is in 2030) and the endangered Nilgiri Tahr.
+</p>
+            <p>Once the summer resort of the erstwhile British government, the main reason to visit Munnar is to explore the tea plantations that looks like a blanket of green spread all over. It is also an ideal place for trekking, camping, paragliding and boating. Munnar is often visited along with Alleppey and Thekkady, the two most popular tourist attractions in Kerala.
+</p>
+            <p>Munnar is a haven for shopping for tea and spices. Cardamom, ginger, cinnamon, clove, nutmeg, coffee and a variety of homemade chocolates can be bought from the number of shops spread across the hill town.</p>
+    
+            </div>
+            <div className="PackageDescriptionWeather">
+                <h1>Best Time To Visit</h1>
+                <p>Summer (March - May)<br/> Winter (December - February)<br/> Monsoon (June - September)</p>
+            </div>
+            
+        </div>
+        <h1 className='PlaceToVisit'>Best Packages For Munnar</h1>
+        <div className="Places Packages">
+            
+            {Places.map((place,index)=>{
+                if(index>4&&index<9){
+                    return(  
+                        <div className="PlaceTab">
+                            <img src={place.image} alt="" className="PlaceTabImage" />
+                            <div className="PlaceTabDetails">
+                                <div className="PlaceTabName">
+                                    <h1 className="PlaceTabTitle">{place.Name}</h1>
+                                    <p className="PlaceTabDescription">{place.Area}</p>
+                                </div>
+                                <h1 className="PlaceTabPrice"> {place.price}</h1>
+                            </div>
+                            <div className="PlaceTabPlaceRating">
+                                <p className="PlaceTabPlace">{place.Days}</p>
+                                <p className="PlaceTabRating"><i className="fa-solid fa-star"></i>{place.rating}</p>
+                            </div>
+                        </div>
+                    )
+                }
+                    
+
+            })} 
+        </div>
+        <h1 className='PlaceToVisit'>Places to Visit in Munnar</h1>
+        <div className="Places">
+            
+
+            
+            {Places.map((place,index)=>{
+                if(index<8){
+                    return(  
+                    <div className="PlaceTab">
+                        <img src={place.image} alt="" className="PlaceTabImage" />
+                        <div className="PlaceTabDetails">
+                            <div className="PlaceTabName">
+                                <h1 className="PlaceTabTitle">{place.Name}</h1>
+                                <p className="PlaceTabDescription">{place.Area}</p>
+                            </div>
+                            <h1 className="PlaceTabPrice"> {place.price}</h1>
+                        </div>
+                        <div className="PlaceTabPlaceRating">
+                            <p className="PlaceTabPlace">{place.Days}</p>
+                            <p className="PlaceTabRating"><i className="fa-solid fa-star"></i>{place.rating}</p>
+                        </div>
+                    </div>
+                )}
+
+            })} 
+        </div>
+        <h1 className="ProjectDescriptionExploretitle">Explore More Places</h1>
+        <div className="Places">
+            
+
+            
+            {Places.map((place,index)=>{
+                if(index>8&&index<13){
+                    return(  
+                    <div className="PlaceTab">
+                        <img src={place.image} alt="" className="PlaceTabImage" />
+                        <div className="PlaceTabDetails">
+                            <div className="PlaceTabName">
+                                <h1 className="PlaceTabTitle">{place.Name}</h1>
+                                <p className="PlaceTabDescription">{place.Area}</p>
+                            </div>
+                            <h1 className="PlaceTabPrice"> {place.price}</h1>
+                        </div>
+                        <div className="PlaceTabPlaceRating">
+                            <p className="PlaceTabPlace">{place.Days}</p>
+                            <p className="PlaceTabRating"><i className="fa-solid fa-star"></i>{place.rating}</p>
+                        </div>
+                    </div>
+                )}
+
+            })} 
+        </div>
+        <h1 className="ProjectDescriptionExploretitle">See Our Vehicles</h1>
+        <div className="Places">
+            
+
+            
+            {Places.map((place,index)=>{
+                if(index>8&&index<13){
+                    return(  
+                    <div className="PlaceTab">
+                        <img src={traveller} alt="" className="PlaceTabImage" />
+                        <div className="PlaceTabDetails">
+                            <div className="PlaceTabName">
+                                <h1 className="PlaceTabTitle">26 Seat</h1>
+                                <p className="PlaceTabDescription">Traveller</p>
+                            </div>
+                            <h1 className="PlaceTabPrice"> A/C</h1>
+                        </div>
+                        <div className="PlaceTabPlaceRating">
+                            <p className="PlaceTabPlace">Pushback Seats</p>
+                            {/* <p className="PlaceTabRating"><i className="fa-solid fa-star"></i>{place.rating}</p> */}
+                        </div>
+                    </div>
+                )}
+
+            })} 
+        </div>
+        
+        <div className="ContactSection">
+        <h1 className="contactSectionTitle">Contact us For More Information on Packages</h1>
+            <form action="">
+                <div className="NameEmail">
+                    <input type="text" className="name" placeholder='Enter Your Name'/>
+                    <input type="number" className="number" placeholder='Enter Your Number'/>
+                </div>
+                <div className="NumberPlace">
+                    <input type="email" className="email"placeholder='Enter Your Email' />
+                    {/* <input type="number" className="number" placeholder='Select Your Vehicle Capacity'/> */}
+                    <Select
+                        defaultValue={items[0]}
+                        label="Single select"
+                        options={items}
+                        className="select"
+                    />
+                    <input type="hidden" className="Place" />
+                </div>
+                <textarea name="" id="" cols="30" rows="10" className="message"placeholder='Enter Your Message'></textarea>
+                <button type="submit" className="buttonSubmit">Send</button>
+            </form>
+        </div>
+        <Footer/>
+    </div>
+  )
+}
+
+export default PackageDescription

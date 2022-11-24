@@ -7,13 +7,16 @@ import Search from '../../Components/Search/Search'
 import Explore from '../../Components/Explore/Explore'
 import Testimonials from '../../Components/Testimonials/Testimonials'
 import './Home.styled.css'
+import Banner from '../../Components/Banner/Banner'
 
-function Home() {
+function Home({placeDesc,setPlaceDesc}) {
+  // console.log("placeDesc from props "+placeDesc);
   return (
     <>
         <Header/>
+        <Banner/>
         <About/>
-        <Search/>
+        <Search placeDesc={placeDesc} setPlaceDesc={setPlaceDesc}/>
         {/* <Explore/> */}
         <Testimonials/>
         <Subscription/>

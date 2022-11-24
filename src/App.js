@@ -10,9 +10,17 @@ import {
 import TourPackage from './Containers/TourPackage/TourPackage';
 import Discover from './Containers/Discover/Discover';
 import Gallery from './Containers/Gallery/Gallery';
-
+import PackageDescription from './Containers/PackageDescription/PackageDescription';
+import { useState } from 'react'
+import Vehicles from './Containers/Vehicles/Vehicles';
+import VehicleDescription from './Containers/VehicleDescription/VehicleDescription';
+import About from './Containers/About/About';
 function App() {
+  const[placeDesc,setPlaceDesc]= useState({});
   return (
+    <div className="App">
+
+    
     <Router>
       {/* <div>
         <nav>
@@ -32,10 +40,15 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/Packages' element={<TourPackage/>} />
+        <Route path='/' element={<Home placeDesc={placeDesc} setPlaceDesc={setPlaceDesc}/>}/>
+        <Route path='/Packages' element={<TourPackage/>}/>
+        <Route path='/About' element={<About/>}/>
         <Route path='/Discover' element={<Discover/>} />
         <Route path='/Gallery' element={<Gallery/>} />
+        <Route path='/Package/:id' element={<PackageDescription placeDesc={placeDesc} setPlaceDesc={setPlaceDesc}/>}   />
+        <Route path='/Vehicles' element={<Vehicles/>}/>
+        <Route path='/Vehicles/:id' element={<VehicleDescription/>}/>
+
         {/* <Route path='/Explore' element={<Explore/>} /> */}
           {/* <Route path="/">
             <Home />
@@ -43,6 +56,7 @@ function App() {
         </Routes>
       {/* </div> */}
     </Router>
+    </div>
   );
 }
 

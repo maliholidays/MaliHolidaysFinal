@@ -3,11 +3,16 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     height:100px;
-    border-bottom: 1px solid white;
+    /* border-bottom: 1px solid white; */
+    position: absolute;
+    top: 0;
+    padding: 0px 100px;
+    z-index: 1;
+    /* color:white !important; */
 
 }
 .HeaderLeftSide{
@@ -31,7 +36,7 @@
 }
 .HeaderMenu ul a{
     text-decoration: none;
-    color:black;
+    color:white;
     font-size: 15px;
     font-weight: 500;
     cursor:pointer;
@@ -45,10 +50,10 @@
     flex-direction: row;
 
 }
-.HeaderRightSide{
+/* .HeaderRightSide{
     width: 3%;
 
-}
+} */
 .HeaderIcons{
     display: flex;
     flex-direction: row;
@@ -57,4 +62,11 @@
 }
 .HeaderIcons i{
     cursor: pointer;
+}
+.FooterLogo h1{
+    color: #fff;
+}
+.FooterLogo h1 span{
+    color: #000;
+
 }

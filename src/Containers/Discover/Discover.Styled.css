@@ -1,0 +1,58 @@
+.Discover{
+    font-family: 'Poppins';
+}
+.PackageDescriptionBanner{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.PackageDescriptionBannerImage{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    z-index: 0;
+
+}
+.PlaceTab{
+    position: relative;
+}
+.PlaceTabPriceasas{
+    font-size: 14px;
+    padding: 0  20px ;
+    font-weight: 500;
+}
+.PlaceTaboverlay{
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+}
+.PlaceTaboverlay a{
+    width: 100%;
+    height: 100%;
+    
+}
+.filters{
+    margin-top: 100px;
+    border-radius: 0;
+}
+.PlaceTabImage{
+    height: 350px;
+    object-fit: cover;
+
+}
+.PlaceTabPriceasas{
+    padding: 10px 20px;
+}
+.PackageDescriptionBannerTitle{
+    font-size: 120px;
+    font-weight: 800;
+    color: #fff;
+    z-index: 1;
+}

@@ -1,0 +1,228 @@
+.PackageDescription{
+    font-family: 'Poppins';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+.PackageDescriptionBannerImage{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.PackageDescriptionContent{
+    margin-top: 100px;
+}
+.PackageDescriptionBannerImage img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    object-fit: cover;
+    background-position: center;
+    z-index: 0;
+}
+.PackageDescriptionBannerTitle{
+    z-index: 1;
+    font-size: 125px;
+}
+.PlaceToVisit{
+    padding: 50px 220px 0px 220px;
+}
+.PackageDescriptionContent p{
+    padding: 25px 200px 0 200px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #000;
+    letter-spacing: 1.5px;
+    line-height: 55px;
+}
+.PackageDescriptionContent h1{
+    font-size: 35px;
+    padding: 25px 200px 0px 200px;
+}
+.PackageDescriptionWeather p{
+    padding: 10px 200px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #000;
+    letter-spacing: 1.5px;
+    line-height: 55px;
+    
+}
+.PackageDescriptionWeather h1{
+    font-size: 35px;
+    padding: 50px 200px 0px 200px;
+}
+.ProjectDescriptionExploretitle{
+    font-size: 35px;
+    padding: 50px 200px 0px 200px;
+}
+.ContactSection{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ContactSection form{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+.NameEmail,.NumberPlace{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.NameEmail,.NumberPlace{
+    width: 100%;
+    margin-bottom: 50px;
+}
+.name,.number,.email,.number{
+    width: 45%;
+    height: 40px;
+    font-size: 18px;
+    color: rgb(46, 46, 46);
+    padding: 5px 15px;
+    border:none;
+    border-bottom:1px solid rgb(179, 179, 179);
+    /* border-radius: 5px; */
+    outline: none;
+
+    
+
+}
+.select{
+    width: 45%;
+    height: 40px;
+    font-size: 18px;
+    color: rgb(46, 46, 46);
+    /* padding: 5px 15px; */
+    
+    outline: none;
+
+    
+
+}
+.PackageDescriptionContentBooking{
+    padding: 0px 200px;
+    margin-bottom: 50px;
+    color: green;
+}
+.css-1s2u09g-control{
+    border:1px solid white;
+}
+/* .email{
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    color: rgb(46, 46, 46);
+    padding: 5px 15px;
+    border:none;
+    border-bottom:1px solid rgb(179, 179, 179);
+    border-radius: 5px;
+    outline: none;
+} */
+.message{
+    width: 100%;
+    min-height: 100px;
+    font-size: 18px;
+    color: rgb(46, 46, 46);
+    padding: 5px 15px;
+    border:none;
+    border-bottom:1px solid rgb(179, 179, 179);
+    /* border-radius: 5px; */
+    outline: none;
+    font-family: 'Poppins';
+}
+.contactSectionTitle{
+    font-size: 35px;
+    padding: 50px 200px 0px 200px;
+}
+.buttonSubmit{
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    background-color:transparent;
+    outline:none;
+    border-bottom:2px solid #000;
+    color:#000;
+    font-family: 'Poppins';
+    font-size: 18px;
+    margin-top: 50px;
+    transition: 0.3s all ease-in-out;
+}
+.buttonSubmit:hover{
+    background-color: #000;
+    color: #fff;
+    
+}
+.PlacesTovisitIn{
+    width: 100%;
+    /* overflow-x: scroll !important;; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;;
+    /* width: 70%; */
+    /* margin-left: auto;margin-right: auto; */
+}
+.placeToVisit{
+    display: flex;
+    margin: 25px;
+    flex-direction: row;    
+    align-items: center;
+    width: 900px;
+    min-height: 475px;
+    box-shadow: 17px 15px 23px -2px rgb(247 247 247);
+
+}
+/* .PlacesTovisitIn::-webkit-scrollbar{
+    display: none;
+} */
+.placeToVisitContents{
+    padding: 20px 50px;
+    width: 500px;
+}
+.placeToVisitImage{
+    width: 400px;
+    border-radius: 5px;
+}
+.placeToVisitContentsTitle{
+    font-size: 25px;
+    font-weight: 700;
+}
+.placeToVisitContentsLocation{
+    font-size: 16px;
+    
+    font-weight: 600;
+}
+.placeToVisitContentsDescription,.placeToVisitContentsTimings,.placeToVisitContentsPrice,.placeToVisitContentsContactNumber{
+    font-size: 18px;
+    padding: 15px 0;
+}
+.placeToVisitContentsTimings span,.placeToVisitContentsPrice span,.placeToVisitContentsContactNumber span{
+    font-weight: 700;
+}
+.placeToVisitContentsDescription{
+    line-height: 35px;
+}
+.placeToVisitContentsBtn{
+    width: 150px;
+    height: 40px;
+    border:2px solid #000;
+    outline:none;
+    border-radius:8px;
+    background-color: transparent;
+    color: black;
+    font-weight: 700;
+    font-family: 'Poppins';
+}

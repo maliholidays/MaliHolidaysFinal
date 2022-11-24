@@ -6,101 +6,33 @@ import {
     Route,
     Link
   } from "react-router-dom";
-
+import Places from '../../APIs/Places'
+import Areas from '../../APIs/States'
 import { useState } from 'react'
-function Search() {
-    const Areas = [
+import PackageDescription from '../../Containers/PackageDescription/PackageDescription'
+function Search({placeDesc,setPlaceDesc}) {
+    // const searchedPlaces = ()=>{
+        
+    // }
+    console.log("placeDesc from home "+placeDesc);
+    const[Search,setSearch] = useState("");
+    const PlacetoVisit = [
         {
-            name:"All"
-        },
-        {
-            name:"Munnar",
-        },
-        {
-            name:"Wayanad",
-        },
-        {
-            name:"Alapuzha",
-        },
-        {
-            name:"Ernakulam",
-        },
-    ]
-    const Places=[
-        {
-            Area:"Munnar",
-            image:"https://images.unsplash.com/photo-1635756227689-01eda5140530?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTh8fG11bm5hcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
-            Name:"Top Station",
-            price:"1245",
-            Days:"2",
-            rating:"4.3",
-        },
-        {
-            Area:"Munnar",
-            image:"https://images.unsplash.com/photo-1580818135730-ebd11086660b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bXVubmFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60",
-            Name:"Tea Plantation",
-            price:"1245",
-            Days:"2",
-            rating:"4.3",
-        },
-        {
-            Area:"Wayanad",
-            image:"https://images.unsplash.com/photo-1547009917-87cfb648b536?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDZ8fHdheWFuYWR8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60",
-            Name:"Churam",
-            price:"1245",
-            Days:"2",
-            rating:"4.3",
-        },
-        {
-            Area:"Wayanad",
-            image:"https://images.unsplash.com/photo-1623302485960-d61687113a11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F5YW5hZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60",
-            Name:"Lakkidi",
-            price:"1245",
-            Days:"2",
-            rating:"4.3",
-        },
-        {
-            Area:"Alapuzha",
-            image:"https://images.unsplash.com/photo-1610342160649-0570571a6ae5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmFjayUyMHdhdGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60",
-            Name:"Backwater",
-            price:"1245",
-            Days:"2",
-            rating:"4.3",
-        },
-        {
-            Area:"Alapuzha",
-            image:"https://images.unsplash.com/photo-1455577380025-4321f1e1dca7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjZ8fGtlcmFsYSUyMGJhY2slMjB3YXRlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60",
-            Name:"Boating",
-            price:"1245",
-            Days:"2",
-            rating:"4.3",
-        },
-        {
-            Area:"Alapuzha",
-            image:"https://images.unsplash.com/photo-1477322524744-0eece9e79640?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTV8fGtlcmFsYSUyMGJhY2slMjB3YXRlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60",
-            Name:"Nature",
-            price:"1245",
-            Days:"2",
-            rating:"4.3",
-        },
-        {
-            Area:"Ernakulam",
-            image:"https://images.unsplash.com/photo-1590123732197-e7079d2ceb89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8a29jaGl8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60",
-            Name:"Kochi Kayal",
-            price:"1245",
-            Days:"2",
-            rating:"4.3",
-        },
-        {
-            Area:"Ernakulam",
+            Area:"Managlore",
             image:"https://images.unsplash.com/photo-1625721838087-c46e51c89558?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8a29jaGl8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60",
             Name:"Kochi Walk way",
+            State:"Andhra Pradesh",
             price:"1245",
             Days:"2",
             rating:"4.3",
-        },
+        }
     ]
-    const [placeArea,setPlaceArea]= useState("");
+    const [placeState,setplaceState]= useState("");
+    const [placeArea,setPlaceArea] = useState("");
+    const[count,setCount]= useState(0);
+    const[trues,setTrues] = useState("false")
+    
+    console.log(placeDesc);
   return (
     <div className="SearchExplore">
          <div className="Search">
@@ -116,7 +48,10 @@ function Search() {
                     </div>
                     <div className="SearchBarInput">
                         <label htmlFor="">Location</label>
-                        <input type="text" placeholder="Where do you want to go?"/>
+                        <input type="text" placeholder="Where do you want to go?" onChange={(e)=>{
+                            setSearch(e.target.value);
+                            
+                        }}/>
                     </div>
                 </div>
                 {/* <div className="SearchBarSection">
@@ -138,19 +73,69 @@ function Search() {
                     </div>
                 </div>
                 <div className="SearchBarSectionIcon">
-                <i className="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass" onClick={()=>{
+                    
+                    setTrues("true")
+                }}></i>
                 </div>
             </div>
         </div>
+        <div className={`searchedDiv ${trues}`}>
+            {Places.map((place,index)=>{
+            if(place.Area===Search){
+                return(
+                    <React.Fragment key={index}>
+                            
+                    <div className="PlaceTab">
+                        <img src={place.image} alt="" className="PlaceTabImage" />
+                        <div className="PlaceTabDetails">
+                        <Link to={`/Package/${place.Area}`} onClick={(e)=>{
+                                // e.preventDefault();
+                                setPlaceDesc({
+                                    name:place.Name,
+                                    area:place.Area,
+                                    image:place.image
+                                })
+                            }}>
+                            <div className="PlaceTabName">
+                                <h1 className="PlaceTabTitle">{place.Name}</h1>
+                                <p className="PlaceTabDescription">{place.Area}</p>
+                            </div>
+                            <h1 className="PlaceTabPrice">$ {place.price}</h1>
+                        </Link>
+                        </div>
+                        <div className="PlaceTabPlaceRating">
+                            <p className="PlaceTabPlace">{place.Days}</p>
+                            <p className="PlaceTabRating"><i className="fa-solid fa-star"></i>{place.rating}</p>
+                            
+                        </div>
+                    </div>
+                    </React.Fragment>
+                )
+            }
+        })}
+        </div>
         <h1 className='SearchTabsTitle'>Popular Search</h1>
         <div className="SearchTabs">
-            {Areas.map((Area)=>{
+            {Areas.map((Area,index)=>{
+                
                 return(
+                    <React.Fragment key={index}>
                     <button className="SearchTabButton" value={Area.name} onClick={(e)=>{
-                        setPlaceArea(e.target.value)
-                    }}>{Area.name}</button>
+                        setplaceState(e.target.value)
+                    }}>{Area.name}</button></React.Fragment>
                 )
             })}
+            {/* <br/>
+            {Places.map((Area)=>{
+                if(placeState==Area.State){
+                
+                return(
+                    <button className="SearchTabButton" value={Area.Area} onClick={(e)=>{
+                        setPlaceArea(e.target.value);
+                    }}>{Area.Area}</button>
+                )}
+            })} */}
             
         </div>
     </div>
@@ -183,42 +168,78 @@ function Search() {
         </div> */}
         <div className="Places">
             {Places.map((place,index)=>{
-                console.log(place.image);
-                while(index<8){
-                if(place.Area==placeArea){
+                {/* console.log("Place-Image is ",place.image); */}
+                if(count<8){
+                
+                if(place.State==trues){
                     return(  
+                        <React.Fragment key={index}>
+                            
                     <div className="PlaceTab">
                         <img src={place.image} alt="" className="PlaceTabImage" />
                         <div className="PlaceTabDetails">
+                        <Link to={`/Package/${place.Area}`} onClick={(e)=>{
+                                // e.preventDefault();
+                                setPlaceDesc({
+                                    name:place.Name,
+                                    area:place.Area,
+                                    image:place.image
+                                })
+                            }}>
                             <div className="PlaceTabName">
                                 <h1 className="PlaceTabTitle">{place.Name}</h1>
                                 <p className="PlaceTabDescription">{place.Area}</p>
                             </div>
                             <h1 className="PlaceTabPrice">$ {place.price}</h1>
+                        </Link>
                         </div>
                         <div className="PlaceTabPlaceRating">
                             <p className="PlaceTabPlace">{place.Days}</p>
                             <p className="PlaceTabRating"><i className="fa-solid fa-star"></i>{place.rating}</p>
+                            
                         </div>
                     </div>
+                    </React.Fragment>
                 )
             }
-                else if(placeArea==""||placeArea=="All"){
+                else if(placeState==""||placeState=="All" && trues==""){
                     return(
+                        <React.Fragment key={index}>
+                           
                         <div className="PlaceTab">
                         <img src={place.image} alt="" className="PlaceTabImage" />
-                        <div className="PlaceTabDetails">
+                        <div className="PlaceTabDetails"> 
+                        <Link to={`/Package/${place.Area}`} onClick={(e)=>{
+                                // e.preventDefault();
+                                setPlaceDesc(place)
+                            }}>
                             <div className="PlaceTabName">
-                                <h1 className="PlaceTabTitle">{place.Name}</h1>
-                                <p className="PlaceTabDescription">{place.Area}</p>
+                                <h1 className="PlaceTabTitle">{place.Area}</h1>
+                                <p className="PlaceTabDescription">{place.State}</p>
                             </div>
                             <h1 className="PlaceTabPrice">$ {place.price}</h1>
-                        </div>
+                        </Link></div>
                         <div className="PlaceTabPlaceRating">
                             <p className="PlaceTabPlace">{place.Days}</p>
                             <p className="PlaceTabRating"><i className="fa-solid fa-star"></i>{place.rating}</p>
+                            {/* <Link to={{
+                                path:"/PackageDescription/",
+                                state:{data:placeDesc}
+                            }} >Read More</Link> */}
+                            
+                            {/* <button onClick={(e)=>{
+                                // e.preventDefault();
+                                
+                                
+                                setPlaceDesc([...placeDesc,{
+                                    name:place.Name,
+                                    area:place.Area,
+                                }])
+                                console.log(placeDesc);
+                                }}>Click me</button> */}
+                            {/* <Link to={`/Discover/${place.Area}`}>Read More</Link> */}
                         </div>
-                    </div>
+                    </div></React.Fragment>
                     )
                 }
                 
