@@ -1,10 +1,10 @@
 import React from 'react'
-import About from '../../Components/About/About'
+import Abouts from '../../Components/About/About'
 
 function About() {
   return (
     <div className="About">
-        <About/>
+        <Abouts/>
     </div>
   )
 }
